@@ -421,10 +421,16 @@ public class VehicleTest {
 
                     break;
                 case 3:
+                   case 3:
                     System.out.print("Enter Vehicle Id: ");
                     int id = sc.nextInt();
-                    System.out.println(service.displayById(id).getDetails());
+                    Vehicle v = service.displayById(id);
+                    if (v != null)
+                    System.out.println(v); // toString()
+                    else
+                    System.out.println("Vehicle not found");
                     break;
+
                 case 4:
                     System.out.print("Enter Vehicle Name: ");
                     String name = sc.next();
