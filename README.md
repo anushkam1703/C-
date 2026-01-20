@@ -32,9 +32,11 @@ public class Vehicle implements Comparable<Vehicle>, Serializable {
         this.stock = stock;
     }
 
-    public String getDetails() {
-        return vehicleId + " " + vehicleName + " " + price + " Stock:" + stock;
-    }
+   @Override
+public String toString() {
+    return vehicleId + " " + vehicleName + " " + price + " Stock:" + stock;
+}
+
 
     @Override
     public int compareTo(Vehicle v) {
@@ -55,10 +57,11 @@ public class TwoWheeler extends Vehicle {
         this.bikeType = bikeType;
     }
 
-    @Override
-    public String getDetails() {
-        return super.getDetails() + " Type:" + bikeType;
-    }
+   @Override
+public String toString() {
+    return super.toString() + " Type:" + bikeType;
+}
+
 }
 //4wheel
 package com.vehicle.bean;
@@ -73,8 +76,8 @@ public class FourWheeler extends Vehicle {
     }
 
     @Override
-    public String getDetails() {
-        return super.getDetails() + " AC:" + hasAC;
+    public String toString() {
+        return super.toString() + " AC:" + hasAC;
     }
 }
 
@@ -412,7 +415,10 @@ public class VehicleTest {
                     break;
                 case 2:
                     for (Vehicle v : service.displayAll())
-                        System.out.println(v.getDetails());
+                        for(Vehicle v : vehicles) {
+                            System.out.println(v);
+                    }
+
                     break;
                 case 3:
                     System.out.print("Enter Vehicle Id: ");
